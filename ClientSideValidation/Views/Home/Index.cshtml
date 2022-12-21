@@ -1,0 +1,28 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row mb-3">
+    <div class="col">
+        <form method="post" class="d-inline">
+            <button type="submit" class="btn btn-warning">Load Data with PostBack</button>
+        </form>
+
+        <button class="btn btn-primary" type="button" onclick="loadData()">Load Data</button>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-4">
+        <ul id="lst" class="list-group">
+        </ul>
+    </div>
+</div>
+
+<script>
+    function loadData() {
+        $("#lst").load("/Home/GetListViewPartial");
+    }
+</script>
